@@ -1,0 +1,15 @@
+{
+  "id": "example-mini-level",
+  "name": "Example: mini level",
+  "version": "1.0.0",
+  "api": 1,
+  "type": "Level",
+  "levels": [
+    {
+      "map": "ExampleLevel",
+      "title": "Example level",
+      "thumbnail": "thumbnail.png"
+    }
+  ],
+  "description": "A copy of the first tutorial as a new level, played from the Workshop entry of the level selection."
+}

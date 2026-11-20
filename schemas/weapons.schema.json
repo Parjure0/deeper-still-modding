@@ -1,0 +1,187 @@
+{
+  "$defs": {
+    "Row": {
+      "properties": {
+        "CameraRecoil": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Damage": {
+          "default": 0,
+          "format": "int32",
+          "type": "integer"
+        },
+        "GunRifle": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UserEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "LeftHandLocation": {
+          "$ref": "#/$defs/UeVec"
+        },
+        "LeftHandRotation": {
+          "$ref": "#/$defs/UeRot"
+        },
+        "MagazineCapacity": {
+          "default": 0,
+          "format": "int32",
+          "type": "integer"
+        },
+        "ManualAutomatic": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UserEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "MaxAmmo": {
+          "default": 0,
+          "format": "int32",
+          "type": "integer"
+        },
+        "Mesh": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "MuzzleFlashScale": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "MuzzleFlashXRelativeLocation": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Projectile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "RelativeLocation": {
+          "$ref": "#/$defs/UeVec"
+        },
+        "ReloadClic": {
+          "default": 0,
+          "format": "int32",
+          "type": "integer"
+        },
+        "RightHandLocation": {
+          "$ref": "#/$defs/UeVec"
+        },
+        "RowName": {
+          "type": "string"
+        },
+        "Sound": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "TimeBetweenTwoRound": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "WeaponRecoil": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "ZoomOffset": {
+          "$ref": "#/$defs/UeVec"
+        }
+      },
+      "required": [
+        "RowName",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "UeRot": {
+      "properties": {
+        "Pitch": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Roll": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Yaw": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "UeVec": {
+      "properties": {
+        "X": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Y": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Z": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "UserEnum": {
+      "pattern": "^enum_[A-Za-z0-9_]+::[A-Za-z0-9_]+$",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Weapon settings (damage, fire rate, magazine, recoil…): one row per weapon.",
+  "properties": {
+    "package": {
+      "default": "",
+      "type": "string"
+    },
+    "row_struct": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rows": {
+      "items": {
+        "$ref": "#/$defs/Row"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "rows"
+  ],
+  "title": "Weapons table",
+  "type": "object"
+}

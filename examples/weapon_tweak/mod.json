@@ -1,0 +1,8 @@
+{
+  "id": "example-weapon-tweak",
+  "name": "Example: weapon tweak",
+  "version": "1.0.0",
+  "api": 1,
+  "type": "Gameplay Mod",
+  "description": "Desert Eagle damage 100 instead of 50."
+}

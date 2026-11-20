@@ -1,0 +1,8 @@
+{
+  "id": "example-texture-replacement",
+  "name": "Example: texture replacement",
+  "version": "1.0.0",
+  "api": 1,
+  "type": "Asset Replacement",
+  "description": "Replaces the image of the Duo button (bottom left of the main menu) with its 'connected' image."
+}

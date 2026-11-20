@@ -1,0 +1,59 @@
+{
+  "$defs": {
+    "Row": {
+      "properties": {
+        "Dialogue": {
+          "$ref": "#/$defs/Text"
+        },
+        "RowName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "RowName"
+      ],
+      "type": "object"
+    },
+    "Text": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "properties": {
+            "text": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Lines of a dialogue: one row per line.",
+  "properties": {
+    "package": {
+      "default": "",
+      "type": "string"
+    },
+    "row_struct": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rows": {
+      "items": {
+        "$ref": "#/$defs/Row"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "rows"
+  ],
+  "title": "Dialogue table",
+  "type": "object"
+}

@@ -1,0 +1,8 @@
+{
+  "datatables/Characters/Enemies.json": "enemies.schema.json",
+  "datatables/Dialogues/**/*.json": "dialogues.schema.json",
+  "datatables/UI/Menu/WeaponAbilityButton.json": "weapon_ability_buttons.schema.json",
+  "datatables/WeaponSystem/Weapon.json": "weapons.schema.json",
+  "levels/**/*.json": "level.schema.json",
+  "mod.json": "mod.schema.json"
+}

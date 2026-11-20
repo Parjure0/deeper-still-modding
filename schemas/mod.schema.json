@@ -1,0 +1,116 @@
+{
+  "$defs": {
+    "ModLevel": {
+      "additionalProperties": false,
+      "description": "Niveau déclaré par un mod.",
+      "properties": {
+        "map": {
+          "description": "Map name: the level file `levels/<map>.json` of the mod (or of the\ngame), without extension. Example: `MyLevel`.",
+          "type": "string"
+        },
+        "thumbnail": {
+          "description": "Optional thumbnail: PNG file of the mod (path relative to the mod\nfolder, `/` separators).",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "description": "Title shown in the Workshop level list.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "map",
+        "title"
+      ],
+      "type": "object"
+    },
+    "ModType": {
+      "description": "Type du mod : exactement les tags de la catégorie « Type » du Workshop\n(configuration Steamworks du 19 novembre 2026).",
+      "oneOf": [
+        {
+          "const": "Level",
+          "description": "New levels, played from the Workshop entry of the level selection.",
+          "type": "string"
+        },
+        {
+          "const": "Asset Replacement",
+          "description": "Only replaces textures, sounds or fonts (keeps achievements, timer\nand progression).",
+          "type": "string"
+        },
+        {
+          "const": "Gameplay Mod",
+          "description": "Changes game data (settings tables, meshes, materials, levels…).",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Description of a Deeper Still mod (file mod.json at the root of the mod folder).",
+  "properties": {
+    "api": {
+      "description": "Mod format version. Must be 1.",
+      "format": "uint32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "description": {
+      "description": "Workshop description (optional).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "id": {
+      "description": "Unique identifier: lowercase letters, digits, `_`, `-`, `.`\n(1 to 64 characters, starting with a letter or a digit).",
+      "type": "string"
+    },
+    "levels": {
+      "description": "Levels added by the mod (listed in the Workshop entry of the level\nselection).",
+      "items": {
+        "$ref": "#/$defs/ModLevel"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "Display name (Workshop title).",
+      "type": "string"
+    },
+    "requires": {
+      "description": "Identifiers of other mods that must be active too.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "type": {
+      "$ref": "#/$defs/ModType",
+      "description": "Workshop tag. The game checks it against the files really present:\nan `Asset Replacement` mod that contains anything other than images,\nsounds or fonts is treated as a `Gameplay Mod`."
+    },
+    "version": {
+      "description": "Version of the mod, free text (example: `1.0.0`).",
+      "type": "string"
+    },
+    "workshop_id": {
+      "description": "Workshop item id, written by `--workshop-envoyer` after the first\nupload. Do not edit.",
+      "format": "uint64",
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "version",
+    "api",
+    "type"
+  ],
+  "title": "mod.json",
+  "type": "object"
+}

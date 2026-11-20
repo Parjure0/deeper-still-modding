@@ -1,0 +1,107 @@
+{
+  "$defs": {
+    "Row": {
+      "properties": {
+        "ActiveAbility": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UserEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "Description": {
+          "$ref": "#/$defs/Text"
+        },
+        "FontSize": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Name": {
+          "$ref": "#/$defs/Text"
+        },
+        "PassiveAbility": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UserEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "RowName": {
+          "type": "string"
+        },
+        "StartMaterial": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Weapon": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UserEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "RowName"
+      ],
+      "type": "object"
+    },
+    "Text": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "properties": {
+            "text": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "UserEnum": {
+      "pattern": "^enum_[A-Za-z0-9_]+::[A-Za-z0-9_]+$",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Buttons of the weapon and ability selection menu.",
+  "properties": {
+    "package": {
+      "default": "",
+      "type": "string"
+    },
+    "row_struct": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rows": {
+      "items": {
+        "$ref": "#/$defs/Row"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "rows"
+  ],
+  "title": "Weapon and ability buttons",
+  "type": "object"
+}

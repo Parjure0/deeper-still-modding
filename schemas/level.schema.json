@@ -1,0 +1,221 @@
+{
+  "$defs": {
+    "ActorEntry": {
+      "properties": {
+        "class": {
+          "type": "string"
+        },
+        "components": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "props": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "r": {
+          "items": {
+            "format": "float",
+            "type": "number"
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "type": "array"
+        },
+        "s": {
+          "items": {
+            "format": "float",
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "t": {
+          "items": {
+            "format": "float",
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "class",
+        "t",
+        "r",
+        "s"
+      ],
+      "type": "object"
+    },
+    "MeshEntry": {
+      "properties": {
+        "actor": {
+          "type": "string"
+        },
+        "body": {
+          "default": null
+        },
+        "collision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collision_profile": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "component": {
+          "type": "string"
+        },
+        "instances": {
+          "items": {
+            "$ref": "#/$defs/Xf"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "materials": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "mesh": {
+          "type": "string"
+        },
+        "r": {
+          "items": {
+            "format": "float",
+            "type": "number"
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "type": "array"
+        },
+        "s": {
+          "items": {
+            "format": "float",
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "simulate_physics": {
+          "default": false,
+          "type": "boolean"
+        },
+        "skeletal": {
+          "default": false,
+          "type": "boolean"
+        },
+        "t": {
+          "items": {
+            "format": "float",
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "visible": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "actor",
+        "component",
+        "mesh",
+        "visible",
+        "t",
+        "r",
+        "s"
+      ],
+      "type": "object"
+    },
+    "Xf": {
+      "properties": {
+        "r": {
+          "items": {
+            "format": "float",
+            "type": "number"
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "type": "array"
+        },
+        "s": {
+          "items": {
+            "format": "float",
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "t": {
+          "items": {
+            "format": "float",
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        }
+      },
+      "required": [
+        "t",
+        "r",
+        "s"
+      ],
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Level file levels/<map>.json: static meshes (meshes) and actors (actors, with their class and properties).",
+  "properties": {
+    "actors": {
+      "items": {
+        "$ref": "#/$defs/ActorEntry"
+      },
+      "type": "array"
+    },
+    "meshes": {
+      "items": {
+        "$ref": "#/$defs/MeshEntry"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "meshes",
+    "actors"
+  ],
+  "title": "Level",
+  "type": "object"
+}

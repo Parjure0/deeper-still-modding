@@ -1,0 +1,7 @@
+# Built files: the add-on zip goes to the GitHub Releases, not to Git.
+dist/
+__pycache__/
+*.pyc
+# Game files and Blender files never go to this repository.
+*.blend
+*.blend1

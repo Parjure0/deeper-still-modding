@@ -1,0 +1,147 @@
+{
+  "$defs": {
+    "Row": {
+      "properties": {
+        "AdditionalRiggedMesh": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "AnimLogic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "CapsuleHalfHeight": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "CapsuleRadius": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Enemy": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UserEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "GetShotImpulse": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "GetShotUpImpulse": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Health": {
+          "default": 0,
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "ProjectileSpawnLocation": {
+          "$ref": "#/$defs/UeVec"
+        },
+        "RowName": {
+          "type": "string"
+        },
+        "RunningSpeed": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "ShootingGunAnimation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ShootingRifleAnimation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "RiggedMesh": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "WalkingSpeed": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "required": [
+        "RowName",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "UeVec": {
+      "properties": {
+        "X": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Y": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        },
+        "Z": {
+          "default": 0.0,
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "UserEnum": {
+      "pattern": "^enum_[A-Za-z0-9_]+::[A-Za-z0-9_]+$",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enemy settings (health, speeds, capsule…): one row per enemy type.",
+  "properties": {
+    "package": {
+      "default": "",
+      "type": "string"
+    },
+    "row_struct": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rows": {
+      "items": {
+        "$ref": "#/$defs/Row"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "rows"
+  ],
+  "title": "Enemies table",
+  "type": "object"
+}
