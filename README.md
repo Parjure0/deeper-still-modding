@@ -177,6 +177,9 @@ have installed.
 
 ## License
 
-Code and documentation: [MIT](LICENSE). This repository contains no asset of
-the game; the game's files stay under the game's license and are read from
-your installed copy.
+- Documentation, schemas and examples: [MIT](LICENSE).
+- Blender add-on (`Blender/deeperstill_modkit/`): GPL-3.0-or-later, like
+  Blender itself ([`Blender/deeperstill_modkit/LICENSE`](Blender/deeperstill_modkit/LICENSE)).
+
+This repository contains no asset of the game; the game's files stay under
+the game's license and are read from your installed copy.
