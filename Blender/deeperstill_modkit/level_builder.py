@@ -118,10 +118,9 @@ EXPORT_KEYS = ("patrolling_locations", "peaceful", "hostile", "player_starts", "
 # Properties set from Blender (removed from the copied actor first).
 MANAGED = {
     gd.CLASS_PATROL: ("Stop?", "RotateCharacter?"),
-    # Dialogue: "DialogueDataSheet" in the extracted game levels (shipped
-    # names), "DialogueDataTable" in older files; the copied character must
-    # not keep the dialogue of the original one.
-    gd.CLASS_PEACEFUL: ("ChooseMesh", "DialogueDataSheet", "DialogueDataTable", "Name", "StartStatic?", "CantPanic?", "ChooseHairHat"),
+    # Dialogue ("DialogueDataSheet" in the extracted game levels): the copied
+    # character must not keep the dialogue of the original one.
+    gd.CLASS_PEACEFUL: ("ChooseMesh", "DialogueDataSheet", "Name", "StartStatic?", "CantPanic?", "ChooseHairHat"),
     gd.CLASS_HOSTILE: ("E Enemies", "SelectWeapon", "BehaviouralState", "Patrolling Locations", "ChooseHairHat"),
     gd.CLASS_TREE: ("SelectTree", "RandomizeMaxAngle", "RandomizeMinScale", "RandomizeMaxScale", "DecalScale"),
     gd.CLASS_LADDER: ("Count", "TwoSided?"),
